@@ -8,7 +8,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class AppComponent  {
 
-  title = 'Upload Multiple Files in Angular 4';
+  title = 'Upload Multiple Files';
 
   constructor (private httpService: HttpClient) {  }
 
@@ -36,12 +36,11 @@ export class AppComponent  {
 
     this.httpService.post('http://localhost:50688/ImportDocuments/Excel', frmData).subscribe(
       data => {
-        // SHOW A MESSAGE RECEIVED FROM THE WEB API.
         this.sMsg = data as string;
-        console.log (this.sMsg);
+        console.log(this.sMsg);
       },
       (err: HttpErrorResponse) => {
-        console.log (err.message);    // Show error, if any.
+        console.log(err.message);
       }
     );
   }
