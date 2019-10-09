@@ -26,14 +26,14 @@ export class AppComponent  {
     const frmData = new FormData();
 
     for (var i = 0; i < this.myFiles.length; i++) { 
-      //console.warn(this.myFiles[i]);
+      console.warn(this.myFiles[i]);
       frmData.append("fileUpload", this.myFiles[i]);
 
       var reader = new FileReader();
       reader.onload = function(e) {
         var arrayBuffer = reader.result;
       }
-      console.log(reader);
+      console.log("Reader : ",reader);
     }
     // fs.readdirAsync('./XML').then(function(directories) {
     //   console.log(directories);
