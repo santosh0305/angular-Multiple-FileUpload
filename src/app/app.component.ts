@@ -16,7 +16,7 @@ export class AppComponent  {
   ngOnInit () {  }
 
   getFileDetails (e) {
-    //console.log(e.target.files);
+    console.log("Files : ",e.target.files);
     for (var i = 0; i < e.target.files.length; i++) { 
       this.myFiles.push(e.target.files[i]);
     }
