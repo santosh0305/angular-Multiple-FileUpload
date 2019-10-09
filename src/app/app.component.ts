@@ -18,30 +18,40 @@ export class AppComponent  {
   ngOnInit () {  }
 
   getFileDetails (e) {
-    console.log(e.target.files);
+    //console.log(e.target.files);
     for (var i = 0; i < e.target.files.length; i++) { 
       this.myFiles.push(e.target.files[i]);
     }
   }
 
-  uploadFiles () {
+  uploadFiles (fileName : any) {
     const frmData = new FormData();
     
     for (var i = 0; i < this.myFiles.length; i++) { 
-      console.warn(this.myFiles[i]);
+      //console.warn(this.myFiles[i]);
       frmData.append("fileUpload", this.myFiles[i]);
     }
 
-    console.table(frmData);
+    //console.table(frmData);
+    console.log("File Name :: ",fileName);
+    this.httpService.get('test.txt', {responseType: 'text'})
+        .subscribe(
+        (
+          data => console.log(data)
+        ),
+        (
+          err : HttpErrorResponse) => {
+          console.log("Error :",err.message);
+        });
 
-    this.httpService.post('http://localhost:50688/ImportDocuments/Excel', frmData).subscribe(
-      data => {
-        this.sMsg = data as string;
-        console.log(this.sMsg);
-      },
-      (err: HttpErrorResponse) => {
-        console.log(err.message);
-      }
-    );
+    // this.httpService.post('http://localhost:50688/ImportDocuments/Excel', frmData).subscribe(
+    //   data => {
+    //     this.sMsg = data as string;
+    //     console.log("Success :",this.sMsg);
+    //   },
+    //   (err: HttpErrorResponse) => {
+    //     console.log("Error :",err.message);
+    //   }
+    // );
   }
 }
