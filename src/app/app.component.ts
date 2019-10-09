@@ -8,9 +8,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-
-  title = 'Upload Multiple Files';
-
   constructor (private httpService: HttpClient) {  }
 
   myFiles:string [] = [];
@@ -25,8 +22,9 @@ export class AppComponent  {
     }
   }
 
-  uploadFiles (e) {
+  uploadFiles () {
     const frmData = new FormData();
+
     for (var i = 0; i < this.myFiles.length; i++) { 
       //console.warn(this.myFiles[i]);
       frmData.append("fileUpload", this.myFiles[i]);
