@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+//import {listFiles} from 'list-files-in-dir';
 
 @Component({
   selector: 'my-app',
@@ -24,25 +25,39 @@ export class AppComponent  {
     }
   }
 
-  uploadFiles (fileName : any) {
+  uploadFiles (e) {
     const frmData = new FormData();
-    
     for (var i = 0; i < this.myFiles.length; i++) { 
       //console.warn(this.myFiles[i]);
       frmData.append("fileUpload", this.myFiles[i]);
-    }
 
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var arrayBuffer = reader.result;
+      }
+      console.log(reader);
+    }
+    // fs.readdirAsync('./XML').then(function(directories) {
+    //   console.log(directories);
+    // });
+    
+    // listFiles('.')
+    // .then(files => {
+    //   console.log(files);
+    //     // do what ever you want with the file paths
+    // });
+    
     //console.table(frmData);
-    console.log("File Name :: ",fileName);
-    this.httpService.get('test.txt', {responseType: 'text'})
-        .subscribe(
-        (
-          data => console.log(data)
-        ),
-        (
-          err : HttpErrorResponse) => {
-          console.log("Error :",err.message);
-        });
+    // console.log("File Name :: ",fileName);
+    // this.httpService.get('test.txt', {responseType: 'text'})
+    //     .subscribe(
+    //     (
+    //       data => console.log(data)
+    //     ),
+    //     (
+    //       err : HttpErrorResponse) => {
+    //       console.log("Error :",err.message);
+    //     });
 
     // this.httpService.post('http://localhost:50688/ImportDocuments/Excel', frmData).subscribe(
     //   data => {

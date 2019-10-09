@@ -3,9 +3,7 @@
       <div style="height:10px"></div>
   <ng-container>
       <div>
-        Path to read all files : <input [(ngModel)]="name" #readAllFiles= "ngModel" type="text" >
-        <p>Value: {{ name }}</p>
-        <p>Valid: {{ readAllFiles.valid }}</p>
+        Path to read all files : <input type="text" >
       </div>
       <div style="height:10px"></div>
       <div>
@@ -13,7 +11,7 @@
       </div>
       <div style="height:10px"></div>
       <div>
-        <button (click)="uploadFiles(name)">Upload</button>
+        <button (click)="uploadFiles(e)">Upload</button>
       </div>
   </ng-container>
 </div>
