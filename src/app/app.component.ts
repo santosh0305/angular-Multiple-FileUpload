@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-//import { HttpErrorResponse } from '@angular/common/https/src/response';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'my-app',
@@ -32,7 +31,7 @@ export class AppComponent  {
       console.warn(this.myFiles[i]);
       frmData.append("fileUpload", this.myFiles[i]);
     }
-    
+
     console.table(frmData);
 
     this.httpService.post('http://localhost:50688/ImportDocuments/Excel', frmData).subscribe(
@@ -41,9 +40,9 @@ export class AppComponent  {
         this.sMsg = data as string;
         console.log (this.sMsg);
       },
-      // (err: HttpErrorResponse) => {
-      //   console.log (err.message);    // Show error, if any.
-      // }
+      (err: HttpErrorResponse) => {
+        console.log (err.message);    // Show error, if any.
+      }
     );
   }
 }
