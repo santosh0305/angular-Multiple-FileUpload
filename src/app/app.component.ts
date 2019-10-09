@@ -32,7 +32,9 @@ export class AppComponent  {
       console.warn(this.myFiles[i]);
       frmData.append("fileUpload", this.myFiles[i]);
     }
+    
     console.table(frmData);
+
     this.httpService.post('http://localhost:50688/ImportDocuments/Excel', frmData).subscribe(
       data => {
         // SHOW A MESSAGE RECEIVED FROM THE WEB API.
