@@ -28,6 +28,7 @@ export class AppComponent  {
 
       //console.log("filename",e.target.files[i].name);
       //console.log("filetype",e.target.files[i].type);
+      console.table("reader", reader);
       console.log("value",reader.result);
 
       // this.reader.onload = () => {
