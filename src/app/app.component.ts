@@ -9,7 +9,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class AppComponent  {
   constructor (private httpService: HttpClient) {  }
-
   
   fileText: any;
   myFiles:string [] = [];
