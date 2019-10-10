@@ -10,10 +10,12 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class AppComponent  {
   constructor (private httpService: HttpClient) {  }
 
+  reader: any;
+  fileText: any;
   myFiles:string [] = [];
   sMsg:string = '';
 
-  ngOnInit () {  }
+  ngOnInit () { }
 
   getFileDetails (e) {
     console.log("Files : ",e.target.files);
@@ -24,16 +26,12 @@ export class AppComponent  {
 
   uploadFiles () {
     const frmData = new FormData();
-
+    
     for (var i = 0; i < this.myFiles.length; i++) {
       console.warn(this.myFiles[i]);
       frmData.append("fileUpload", this.myFiles[i]);
 
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        var arrayBuffer = reader.result;
-      }
-      console.log("Reader : ",reader);
+      
     }
     // fs.readdirAsync('./XML').then(function(directories) {
     //   console.log(directories);
