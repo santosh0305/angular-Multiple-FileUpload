@@ -15,7 +15,8 @@ export class AppComponent  {
   myFiles:string [] = [];
   sMsg:string = '';
 
-  ngOnInit () { }
+  ngOnInit () {
+  }
 
   getFileDetails (e) {
     console.log("Files : ",e.target.files);
@@ -30,8 +31,8 @@ export class AppComponent  {
       
       //console.log("filename",e.target.files[i].name);
       //console.log("filetype",e.target.files[i].type);
-      console.log("reader", reader);
-      console.log("value",reader.result);
+      //console.log("reader", reader);
+      //console.log("value",reader.result);
 
       // this.reader.onload = () => {
       //   this.form.get('avatar').setValue({
@@ -41,16 +42,16 @@ export class AppComponent  {
       //   })
       // };
 
+    
     }
   }
-
+  
   uploadFiles () {
     const frmData = new FormData();
     
     for (var i = 0; i < this.myFiles.length; i++) {
       console.warn("Uploading File :",this.myFiles[i]);
       frmData.append("fileUpload", this.myFiles[i]);
-
       
     }
     // fs.readdirAsync('./XML').then(function(directories) {
