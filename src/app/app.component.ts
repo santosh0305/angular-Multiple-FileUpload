@@ -10,7 +10,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class AppComponent  {
   constructor (private httpService: HttpClient) {  }
 
-  reader = new FileReader();
+  
   fileText: any;
   myFiles:string [] = [];
   sMsg:string = '';
@@ -22,12 +22,13 @@ export class AppComponent  {
     for (var i = 0; i < e.target.files.length; i++) { 
       this.myFiles.push(e.target.files[i]);
 
+      let reader = new FileReader();
       let file = e.target.files[i];
-      this.reader.readAsDataURL(file);
+      reader.readAsDataURL(file);
 
       //console.log("filename",e.target.files[i].name);
       //console.log("filetype",e.target.files[i].type);
-      console.log("value",this.reader.result.toString());
+      console.log("value",reader.result);
 
       // this.reader.onload = () => {
       //   this.form.get('avatar').setValue({
