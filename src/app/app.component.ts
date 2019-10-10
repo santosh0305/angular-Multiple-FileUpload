@@ -16,6 +16,10 @@ export class AppComponent  {
   sMsg:string = '';
 
   ngOnInit () {
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+    } else {
+      alert('Your browser is too old to support HTML5 Files API.');
+    }
   }
 
   getFileDetails (e) {
@@ -27,6 +31,7 @@ export class AppComponent  {
       let file = e.target.files[i];
       //reader.readAsDataURL(file);
       //reader.readAsArrayBuffer(file);
+      reader.readAsBinaryString(file);
       //reader.readAsText(file);
       
       //console.log("filename",e.target.files[i].name);
@@ -42,6 +47,10 @@ export class AppComponent  {
       //   })
       // };
 
+      reader.addEventListener("load", function () {
+        var dataString = reader.result;
+        console.log("dataString",dataString);
+      }, false);
     
     }
   }
