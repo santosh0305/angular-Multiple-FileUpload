@@ -48,7 +48,7 @@ export class AppComponent  {
     const frmData = new FormData();
     
     for (var i = 0; i < this.myFiles.length; i++) {
-      console.warn(this.myFiles[i]);
+      console.warn("Uploading File :",this.myFiles[i]);
       frmData.append("fileUpload", this.myFiles[i]);
 
       
