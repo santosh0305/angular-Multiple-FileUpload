@@ -25,8 +25,8 @@ export class AppComponent  {
       let file = e.target.files[i];
       this.reader.readAsDataURL(file);
 
-      console.log("filename",e.target.files[i].name);
-      console.log("filetype",e.target.files[i].type);
+      //console.log("filename",e.target.files[i].name);
+      //console.log("filetype",e.target.files[i].type);
       console.log("value",this.reader.result.toString());
 
       // this.reader.onload = () => {
