@@ -18,17 +18,19 @@ export class AppComponent  {
   ngOnInit () { }
 
   getFileDetails (e) {
-    //console.log("Files : ",e.target.files);
+    console.log("Files : ",e.target.files);
     for (var i = 0; i < e.target.files.length; i++) { 
       this.myFiles.push(e.target.files[i]);
 
       let reader = new FileReader();
       let file = e.target.files[i];
-      reader.readAsDataURL(file);
-
+      //reader.readAsDataURL(file);
+      //reader.readAsArrayBuffer(file);
+      //reader.readAsText(file);
+      
       //console.log("filename",e.target.files[i].name);
       //console.log("filetype",e.target.files[i].type);
-      console.table("reader", reader);
+      console.log("reader", reader);
       console.log("value",reader.result);
 
       // this.reader.onload = () => {
